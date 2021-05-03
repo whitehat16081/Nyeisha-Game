@@ -23,21 +23,27 @@ princess=createSprite(75,165);
 princess.addImage(princessImg);
 princess.scale=0.20;
 //princess.debug=true;
-princess.setCollider("circle",0,0,200); 
+princess.setCollider("rectangle",0,0,380,400); 
 
-wolf=createSprite(570,340,50,50);
+wolf=createSprite(650,550,50,50);
 wolf.addImage(wolfImg);
-wolf.scale=0.4;
+wolf.scale=0.3;
+//wolf.debug=true;
+wolf.setCollider("rectangle",0,0,280,300); 
 
 wolf1=createSprite(1060,430,50,50);
 wolf1.addImage(wolfImg);
 wolf1.scale=0.4;
+//wolf1.debug=true;
+wolf1.setCollider("rectangle",0,0,280,300); 
 
+
+edges=createEdgeSprites();
 }
 function draw(){
 background(backgroundImg);
 drawSprites();
-
+princess.collide(edges);
 //bouncing();
 if(keyDown(UP_ARROW)){
     princess.y=princess.y-20;
@@ -68,8 +74,8 @@ if(gameState===1){
         stroke("white");
         fill("white");
         text("Congratulations!",500,300);
-        text("You completed Level 1!",500,400);
-        text("Press Enter to continue!",500,500);
+        text("You completed Level 1!",450,400);
+        text("Press Enter to continue!",450,500);
         if(keyDown("enter")){
             gameState=2;
             princess.x=75;
@@ -92,8 +98,8 @@ else if(gameState===2){
         stroke("white");
         fill("white");
         text("Congratulations!",500,300);
-        text("You completed Level 2!",500,400);
-        text("Press Enter to continue!",500,500);
+        text("You completed Level 2!",450,400);
+        text("Press Enter to continue!",450,500);
         if(keyDown("enter")){
             gameState=3;
             princess.x=75;
@@ -116,8 +122,8 @@ else if(gameState===3){
         stroke("white");
         fill("white");
         text("Congratulations!",500,300);
-        text("You completed Level 3!",500,400);
-        text("Press Enter to continue!",500,500);
+        text("You completed Level 3!",450,400);
+        text("Press Enter to continue!",450,500);
         if(keyDown("enter")){
             gameState=4;
             princess.x=75;
@@ -139,7 +145,7 @@ else if(gameState===4){
         stroke("white");
         fill("white");
         text("Congratulations!",500,300);
-        text("You won the game!",500,500);
+        text("You won the game!",450,500);
         
     }
 }
